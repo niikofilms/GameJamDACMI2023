@@ -1,14 +1,17 @@
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class playerController : MonoBehaviour
 {
     public float speed;
     new Rigidbody2D rigidbody;
+    private float horVel;
+    private float vertVel;
     //shooting
     public GameObject bulletPrefab;
     public float bulletSpeed;
-    private float lastFire;
-    public float fireDelay;
+    private float canFire = -1f;
+    public float fireRate = 0.5f;
 
     void Start()
     {
@@ -18,50 +21,45 @@ public class playerController : MonoBehaviour
     void Update()
     {
         movement();
-        //collectedMaterials();
         shoot();
     }
     void movement()
     {
+        speed = gameController.MoveSpeed;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        float horVel = horizontal * speed;
-        float vertVel = vertical * speed;
+        horVel = horizontal * speed;
+        vertVel = vertical * speed;
         rigidbody.velocity = new Vector3(horVel, vertVel, 0);
     }
 
     void shoot()
     {
+        fireRate= gameController.FireRate;
         float horShoot = Input.GetAxisRaw("HorizontalShoot");
         float verShoot = Input.GetAxisRaw("VerticalShoot");
-        
-        //if ((horShoot != 0 || verShoot != 0) && Time.time > canFire)
-        if ((horShoot != 0 || verShoot != 0) && Time.time > lastFire + fireDelay)
 
+        //if ((horShoot != 0 || verShoot != 0) && Time.time > canFire)
+        if ((horShoot != 0 || verShoot != 0) && Time.time > canFire)
         {
-            if (horShoot != 0) { 
+            canFire = Time.time + fireRate;
+            if (horShoot != 0)
+            {
                 verShoot = 0;
                 this.transform.rotation = Quaternion.Euler(0, 0, -90 * horShoot);
             }
-            if (verShoot != 0) { 
+            if (verShoot != 0)
+            {
                 horShoot = 0;
-                if( verShoot ==1)
-                {
-                    this.transform.rotation = Quaternion.Euler(0, 0, 0);
-                }
-                else
-                {
-                    this.transform.rotation = Quaternion.Euler(0, 0, 180);
-                }
-                
+                if (verShoot == 1) { this.transform.rotation = Quaternion.Euler(0, 0, 0); }
+                else { this.transform.rotation = Quaternion.Euler(0, 0, 180); }
             }
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
-            //canFire = Time.time + fireRate;
+            Vector3 positionBullet = new Vector3(transform.position.x + (0.7f * horShoot), transform.position.y + (0.7f * verShoot));
+            GameObject bullet = Instantiate(bulletPrefab, positionBullet, transform.rotation) as GameObject;
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
             (horShoot < 0) ? Mathf.Floor(horShoot) * bulletSpeed : Mathf.Ceil(horShoot) * bulletSpeed,
             (verShoot < 0) ? Mathf.Floor(verShoot) * bulletSpeed : Mathf.Ceil(verShoot) * bulletSpeed, 0
             );
-            lastFire = Time.time;
-        }      
+        }
     }
 }
