@@ -5,25 +5,31 @@ using UnityEngine;
 public class bulletController : MonoBehaviour
 {
     public float lifeTime;
+    public float destroyDistance;
+    private Vector3 initialPotition;
 
     public GameObject bulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        
-        StartCoroutine(DeathDelay());
+        initialPotition = transform.position;
+        transform.localScale = new Vector2(gameController.BulletSize,gameController.BulletSize);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        destroyBullet(); 
     }
-
-    IEnumerator DeathDelay()
+    void destroyBullet()
     {
-        yield return new WaitForSeconds(lifeTime);
-        Destroy(gameObject);
+        destroyDistance = gameController.Range;
+        float distance = Vector3.Distance(initialPotition,transform.position);
+
+        if (distance > destroyDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

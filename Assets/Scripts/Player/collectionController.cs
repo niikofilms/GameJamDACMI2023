@@ -1,9 +1,12 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class collectionController : MonoBehaviour
 {
+    //Materials
     public TextMeshProUGUI collectedTextRoble;
     public TextMeshProUGUI collectedTextMagma;
     public TextMeshProUGUI collectedTextSlime;
@@ -12,6 +15,9 @@ public class collectionController : MonoBehaviour
     public static int collectedSlime = 0;
     public static int collectedMagma = 0;
     public static int collectedIce = 0;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,22 +38,22 @@ public class collectionController : MonoBehaviour
             switch (gameObject.tag)
             {
                 case "roble":
-                    randomAmount = Random.Range(2, 6);
+                    randomAmount = UnityEngine.Random.Range(2, 6);
                     collectedRoble += randomAmount;
                     break;
 
                 case "slime":
-                    randomAmount = Random.Range(2, 6);
+                    randomAmount = UnityEngine.Random.Range(2, 6);
                     collectedSlime += randomAmount;
                     break;
 
                 case "magma":
-                    randomAmount = Random.Range(2, 6);
+                    randomAmount = UnityEngine.Random.Range(2, 6);
                     collectedMagma += randomAmount;
                     break;
 
                 case "ice":
-                    randomAmount = Random.Range(2, 6);
+                    randomAmount = UnityEngine.Random.Range(2, 6);
                     collectedIce += randomAmount;
                     break;
             }

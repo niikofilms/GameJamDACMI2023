@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1529683699517738721}
   - component: {fileID: 2973685533345975265}
   - component: {fileID: 111560330114007953}
-  - component: {fileID: 8901847371846531734}
+  - component: {fileID: 6415845728535482413}
   m_Layer: 0
   m_Name: collectableRoble
   m_TagString: roble
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8901847371846531734
+--- !u!114 &6415845728535482413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,3 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7fcadda3e06fa4c97a7219f74b6225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectedTextRoble: {fileID: 0}
+  collectedTextMagma: {fileID: 0}
+  collectedTextSlime: {fileID: 0}
+  collectedTextIce: {fileID: 0}
