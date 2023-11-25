@@ -5,16 +5,19 @@ using UnityEngine;
 public class bulletController : MonoBehaviour
 {
     public float lifeTime;
+
+    public GameObject bulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
+        
         StartCoroutine(DeathDelay());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator DeathDelay()
@@ -22,4 +25,5 @@ public class bulletController : MonoBehaviour
         yield return new WaitForSeconds(lifeTime);
         Destroy(gameObject);
     }
+
 }
