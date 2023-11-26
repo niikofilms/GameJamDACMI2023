@@ -11,7 +11,7 @@ public class playerController : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed;
     private float canFire = -1f;
-    public float fireRate = 0.5f;
+    public float fireRate;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class playerController : MonoBehaviour
     void shoot()
     {
         fireRate= gameController.FireRate;
+        bulletSpeed = gameController.BulletSpeed;
         float horShoot = Input.GetAxisRaw("HorizontalShoot");
         float verShoot = Input.GetAxisRaw("VerticalShoot");
 

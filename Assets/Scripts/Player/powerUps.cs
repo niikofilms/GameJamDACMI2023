@@ -20,6 +20,7 @@ public class powerUps : MonoBehaviour
     public float fireRateChange;
     public float bulletSizeChange;
     public float bulletRangeChange;
+    public float bulletSpeedChange;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +44,7 @@ public class powerUps : MonoBehaviour
             gameController.FireRateChange(fireRateChange); 
             gameController.BulletSizeChange(bulletSizeChange);
             gameController.bulletRangeChange(bulletRangeChange);
+            gameController.bulletSpeedChange(bulletSpeedChange);
             Destroy(gameObject);
         }
     }
