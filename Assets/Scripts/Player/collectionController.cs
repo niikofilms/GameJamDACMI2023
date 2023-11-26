@@ -15,12 +15,14 @@ public class collectionController : MonoBehaviour
     public static int collectedSlime = 0;
     public static int collectedMagma = 0;
     public static int collectedIce = 0;
-
+    private GameObject player;
+    private Vector3 materialPotition;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         
     }
 
@@ -28,6 +30,7 @@ public class collectionController : MonoBehaviour
     void Update()
     {
         collectedMaterials();
+        attractMaterial();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -73,5 +76,15 @@ public class collectionController : MonoBehaviour
 
         if (collectedTextIce != null)
             collectedTextIce.text = "Ice: " + collectedIce;
+    }
+
+    void attractMaterial()
+    {
+        materialPotition = transform.position;
+        float distance = Vector3.Distance(materialPotition, player.transform.position);
+        if (distance < 6.5f)
+        {
+            transform.position = Vector3.Lerp(this.transform.position, player.transform.position,t:0.8f*Time.deltaTime);
+        }
     }
 }

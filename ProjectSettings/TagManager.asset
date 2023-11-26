@@ -8,6 +8,9 @@ TagManager:
   - slime
   - magma
   - ice
+  - bullet
+  - Chest
+  - Enemy
   layers:
   - Default
   - TransparentFX

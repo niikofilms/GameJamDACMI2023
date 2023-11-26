@@ -25,8 +25,14 @@ public class bulletController : MonoBehaviour
     {
         destroyDistance = gameController.Range;
         float distance = Vector3.Distance(initialPotition,transform.position);
-
         if (distance > destroyDistance)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Chest" || collision.tag == "Enemy")
         {
             Destroy(gameObject);
         }
