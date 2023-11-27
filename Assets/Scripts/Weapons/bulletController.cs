@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class bulletController : MonoBehaviour
 {
+    public float damage = 2;
     public float lifeTime;
 
-    public GameObject bulletPrefab;
+    [HideInInspector]
+    public string senderTag = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,18 @@ public class bulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void OnCollisionEnter2D (Collision2D collision)
+    {
+        if(collision.gameObject.TryGetComponent(out ITakeDamage target) && collision.transform.tag != senderTag)
+        {
+            target.TakeDamage(damage, collision.transform.position);
+           
+        }
+
+        Destroy(gameObject);
 
     }
 

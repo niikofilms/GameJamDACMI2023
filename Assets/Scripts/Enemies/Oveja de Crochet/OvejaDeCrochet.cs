@@ -17,7 +17,7 @@ public class OvejaDeCrochet : EnemyBase
 
     }
 
-    public override void Attack ()
+    public override void Attack (int state)
     {
 
     }

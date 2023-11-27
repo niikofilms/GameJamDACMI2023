@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6402687606218442673}
   - component: {fileID: 2393978499013007352}
   - component: {fileID: -6596243592925180065}
+  - component: {fileID: -7890042199891938626}
   m_Layer: 0
   m_Name: basBullet
   m_TagString: Untagged
@@ -108,7 +109,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -125,7 +126,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f414fb0ba75e18848ad410e7fe4a8320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 2
   lifeTime: 1
-  bulletPrefab: {fileID: 509771046476295920}
-  bulletSpeed: 0
-  canFire: -1
+--- !u!58 &-7890042199891938626
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509771046476295920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

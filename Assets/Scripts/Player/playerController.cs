@@ -1,18 +1,25 @@
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, ITakeDamage
 {
     public float speed;
-    new Rigidbody2D rigidbody;
+
     //shooting
     public GameObject bulletPrefab;
     public float bulletSpeed;
     private float lastFire;
     public float fireDelay;
 
+
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -27,7 +34,7 @@ public class playerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float horVel = horizontal * speed;
         float vertVel = vertical * speed;
-        rigidbody.velocity = new Vector3(horVel, vertVel, 0);
+        rb.velocity = new Vector3(horVel, vertVel, 0);
     }
 
     void shoot()
@@ -57,11 +64,24 @@ public class playerController : MonoBehaviour
             }
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
             //canFire = Time.time + fireRate;
+
+            bullet.GetComponent<bulletController>().senderTag = gameObject.tag;
+
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(
             (horShoot < 0) ? Mathf.Floor(horShoot) * bulletSpeed : Mathf.Ceil(horShoot) * bulletSpeed,
             (verShoot < 0) ? Mathf.Floor(verShoot) * bulletSpeed : Mathf.Ceil(verShoot) * bulletSpeed, 0
             );
             lastFire = Time.time;
         }      
+    }
+
+    public void TakeDamage (float damage, float3 position)
+    {
+       StartCoroutine(Utilities.ApplyColor(spriteRenderer));
+    }
+
+    public void Die ()
+    {
+      
     }
 }

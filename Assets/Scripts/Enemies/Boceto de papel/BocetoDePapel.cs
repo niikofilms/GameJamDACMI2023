@@ -18,7 +18,7 @@ public class BocetoDePapel : EnemyBase
 
     }
 
-    public override void Attack ()
+    public override void Attack (int state)
     {
       
     }

@@ -17,7 +17,7 @@ public class Slime : EnemyBase
 
     }
 
-    public override void Attack ()
+    public override void Attack (int state)
     {
 
     }
