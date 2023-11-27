@@ -7,6 +7,10 @@ public class bulletController : MonoBehaviour
     public float lifeTime;
     public float destroyDistance;
     private Vector3 initialPotition;
+    public float damage = 2;
+
+    [HideInInspector]
+    public string senderTag = "";
 
     public GameObject bulletPrefab;
     // Start is called before the first frame update
@@ -30,12 +34,16 @@ public class bulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D (Collision2D collision)
     {
-        if (collision.tag == "Chest" || collision.tag == "Enemy")
+        if (collision.gameObject.TryGetComponent(out ITakeDamage target) && collision.transform.tag != senderTag)
         {
-            Destroy(gameObject);
+            target.TakeDamage(damage, collision.transform.position);
+
         }
+        Destroy(gameObject);
     }
+
 
 }

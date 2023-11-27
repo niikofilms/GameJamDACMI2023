@@ -350,5 +350,5 @@ MonoBehaviour:
   fireBall: {fileID: 509771046476295920, guid: 51b5921c78a06ce4b80911f8a16b31bd, type: 3}
   fireBallSpeed: 7
   lavaPuddle: {fileID: 6536532594785166219, guid: 7a024582bdf8b2a439326aa339324e80, type: 3}
-  lavaPuddleRate: 0.5
+  lavaPuddleRate: 0.3
   smallVolcano: {fileID: 7459709197392738487, guid: 3dccb0944e0f3564785e16a4559b54f3, type: 3}

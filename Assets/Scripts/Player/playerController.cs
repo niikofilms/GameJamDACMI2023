@@ -1,10 +1,11 @@
+using Unity.Mathematics;
 using UnityEngine;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, ITakeDamage
 {
     public float speed;
-    new Rigidbody2D rigidbody;
+    private Rigidbody2D rigidbody;
     private float horVel;
     private float vertVel;
     //shooting
@@ -12,9 +13,11 @@ public class playerController : MonoBehaviour
     public float bulletSpeed;
     private float canFire = -1f;
     public float fireRate;
+    private SpriteRenderer spriteRenderer;
 
-    void Start()
+    private void Awake ()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -62,5 +65,15 @@ public class playerController : MonoBehaviour
             (verShoot < 0) ? Mathf.Floor(verShoot) * bulletSpeed : Mathf.Ceil(verShoot) * bulletSpeed, 0
             );
         }
+    }
+
+    public void TakeDamage (float damage, float3 position)
+    {
+        StartCoroutine(Utilities.ApplyColor(spriteRenderer));
+    }
+
+    public void Die ()
+    {
+       
     }
 }
