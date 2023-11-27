@@ -4,41 +4,38 @@ using UnityEngine;
 
 public class bulletController : MonoBehaviour
 {
-    public float damage = 2;
     public float lifeTime;
+    public float destroyDistance;
+    private Vector3 initialPotition;
 
-    [HideInInspector]
-    public string senderTag = "";
-
+    public GameObject bulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        
-        StartCoroutine(DeathDelay());
+        initialPotition = transform.position;
+        transform.localScale = new Vector2(gameController.BulletSize,gameController.BulletSize);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        destroyBullet(); 
     }
-
-    private void OnCollisionEnter2D (Collision2D collision)
+    void destroyBullet()
     {
-        if(collision.gameObject.TryGetComponent(out ITakeDamage target) && collision.transform.tag != senderTag)
+        destroyDistance = gameController.Range;
+        float distance = Vector3.Distance(initialPotition,transform.position);
+        if (distance > destroyDistance)
         {
-            target.TakeDamage(damage, collision.transform.position);
-           
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
-
     }
-
-    IEnumerator DeathDelay()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(lifeTime);
-        Destroy(gameObject);
+        if (collision.tag == "Chest" || collision.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

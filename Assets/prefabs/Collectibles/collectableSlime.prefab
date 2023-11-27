@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6067865047803529186}
   - component: {fileID: 6869767660180134256}
   - component: {fileID: 7913516960432817776}
-  - component: {fileID: 1986463398045308084}
+  - component: {fileID: 7777605102565045606}
+  - component: {fileID: 1313540045218863857}
   m_Layer: 0
   m_Name: collectableSlime
   m_TagString: slime
@@ -121,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1986463398045308084
+--- !u!114 &7777605102565045606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,3 +134,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7fcadda3e06fa4c97a7219f74b6225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectedTextRoble: {fileID: 0}
+  collectedTextMagma: {fileID: 0}
+  collectedTextSlime: {fileID: 0}
+  collectedTextIce: {fileID: 0}
+--- !u!50 &1313540045218863857
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3254901252518926536}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

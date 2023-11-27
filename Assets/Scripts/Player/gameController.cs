@@ -10,13 +10,19 @@ public class gameController : MonoBehaviour
 
     private static int health = 6;
     private static int maxHealth = 6;
-    private static float moveSpeed = 5f;
-    private static float fireRate = 0.5f;
+    private static float moveSpeed = 9f;
+    private static float fireRate = 0.6f;
+    private static float bulletSize = 0.6f;
+    private static float range = 15f;
+    private static float bulletSpeed = 11f;
 
     public static int Health { get => health; set => health = value; }
     public static int MaxHealth { get => maxHealth; set => maxHealth = value; }
     public static float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public static float FireRate { get => fireRate; set => fireRate = value; }
+    public static float BulletSize { get => bulletSize; set => bulletSize = value; }
+    public static float Range { get => range; set => range = value; }
+    public static float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
 
     public TextMeshProUGUI healthText;
 
@@ -34,7 +40,7 @@ public class gameController : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = "Health: " + health;
+            healthText.text = "Health: " + health+ "/"+ maxHealth;
         }
     }
 
@@ -52,7 +58,30 @@ public class gameController : MonoBehaviour
     {
         health = Mathf.Min(MaxHealth, Health + healAmount);
     }
-
+    public static void maxHealthChange(int maxHealth)
+    {
+        MaxHealth += maxHealth;
+    }
+    public static void MoveSpeedChange(float speed)
+    {
+        MoveSpeed += speed;
+    }
+    public static void FireRateChange(float rate)
+    {
+        FireRate -= rate;
+    }
+    public static void BulletSizeChange(float size)
+    {
+        BulletSize += size;
+    }
+    public static void bulletRangeChange(float range)
+    {
+        Range += range;
+    }
+    public static void bulletSpeedChange(float bulletSpeed)
+    {
+        BulletSpeed += bulletSpeed;
+    }
     private static void KillPlayer()
     {
 
