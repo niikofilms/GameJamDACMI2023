@@ -591,6 +591,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ababc965eacbce4fa5b5aed620ce2f4, type: 3}
+--- !u!1001 &564082268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.973646
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428762954492651201, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689539403158414485, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
+      propertyPath: m_Name
+      value: Volcan corredor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 980f0a316f25b104f99fb9e12e0e8be8, type: 3}
 --- !u!1001 &575180830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1780,3 +1837,4 @@ SceneRoots:
   - {fileID: 2732701015533330115}
   - {fileID: 1436676827}
   - {fileID: 575180830}
+  - {fileID: 564082268}
